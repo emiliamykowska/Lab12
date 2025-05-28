@@ -6,11 +6,10 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        //System.out.println(splitUsingPunctuation("CleanedMetamorphosis.txt"));
         List<String> sentences = splitUsingPunctuation("CleanedMetamorphosis.txt");
         List<String> cleanedList = new ArrayList<>();
         sentences.forEach(s -> {
-            String cleaned = s.replaceAll("[\\p{Punct}]", "")
+            String cleaned = s.replaceAll("\\p{Punct}", "")
                     .toLowerCase()
                     .replaceAll("\\s+", " ")
                     .trim();
@@ -18,31 +17,22 @@ public class Main {
                 cleanedList.add(cleaned);
             }
         });
-//        cleanedList.forEach(System.out::println);
+
         countWords(splitToWordsDeleteStop(cleanedList));
-
-
-
 
     }
 
     public static void countWords(List<String> words){
         Map<String, Integer> wordsCounter = new HashMap<>();
 
-        words.forEach(word -> {
-            wordsCounter.put(word, wordsCounter.getOrDefault(word, 0) + 1);
-        });
+        words.forEach(word -> wordsCounter.put(word, wordsCounter.getOrDefault(word, 0) + 1));
 
-        wordsCounter.forEach((key, value) -> {
-            System.out.println(key + ": " + value);
-        });
+        wordsCounter.forEach((key, value) -> System.out.println(key + ": " + value));
 
         List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(wordsCounter.entrySet());
         sortedEntries.sort((a, b) -> b.getValue().compareTo(a.getValue()));
 
-        sortedEntries.forEach(entry -> {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        });
+        sortedEntries.forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue()));
 
         System.out.println("Most frequent words: ");
         for (int i = 0; i < 10;  i++) {
