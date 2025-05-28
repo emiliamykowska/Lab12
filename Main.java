@@ -7,7 +7,21 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.println(splitUsingPunctuation("CleanedMetamorphosis.txt"));
+        //System.out.println(splitUsingPunctuation("CleanedMetamorphosis.txt"));
+        List<String> sentences = splitUsingPunctuation("CleanedMetamorphosis.txt");
+        List<String> cleanedList = new ArrayList<>();
+        sentences.forEach(s -> {
+            String cleaned = s.replaceAll("[\\p{Punct}]", "")
+                    .toLowerCase()
+                    .replaceAll("\\s+", " ")
+                    .trim();
+            if (!cleaned.isEmpty()) {
+                cleanedList.add(cleaned);
+            }
+        });
+        cleanedList.forEach(System.out::println);
+
+
 
     }
 
@@ -26,4 +40,7 @@ public class Main {
         return result;
 
     }
+
+
+
 }
