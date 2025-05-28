@@ -12,18 +12,16 @@ public class Main {
     }
 
     public static List<String> splitUsingPunctuation(String filePath) throws IOException {
-        List<String> lines = Files.readAllLines(Path.of(filePath));
+        String content = Files.readString(Path.of(filePath));
+        String[] sentences = content.split("[.!?]");
         List<String> result = new ArrayList<>();
 
-        lines.forEach(line -> {
-            String[] sentences = line.split("[.!?]");
-            for (String sentence : sentences) {
-                String trimmed = sentence.trim();
-                if (!trimmed.isEmpty()) {
-                    result.add(trimmed);
-                }
+        for (String sentence : sentences) {
+            String trimmed = sentence.trim();
+            if (!trimmed.isEmpty()) {
+                result.add(trimmed);
             }
-        });
+        }
 
         return result;
 
