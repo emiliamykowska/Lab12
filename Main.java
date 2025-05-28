@@ -1,9 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -21,10 +19,39 @@ public class Main {
             }
         });
 //        cleanedList.forEach(System.out::println);
-        System.out.println(splitToWordsDeleteStop(cleanedList));
+        countWords(splitToWordsDeleteStop(cleanedList));
 
 
 
+
+    }
+
+    public static void countWords(List<String> words){
+        Map<String, Integer> wordsCounter = new HashMap<>();
+
+        words.forEach(word -> {
+            wordsCounter.put(word, wordsCounter.getOrDefault(word, 0) + 1);
+        });
+
+        wordsCounter.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
+
+        List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(wordsCounter.entrySet());
+        sortedEntries.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+
+        sortedEntries.forEach(entry -> {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        });
+
+        System.out.println("Most frequent words: ");
+        for (int i = 0; i < 10;  i++) {
+            if (i != 9){
+            System.out.print(sortedEntries.get(i).getKey() + ", ");}
+            else {
+                System.out.print(sortedEntries.get(i).getKey());
+            }
+        }
 
     }
 
