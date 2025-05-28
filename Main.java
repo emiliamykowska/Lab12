@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.println(splitUsingPunctuation("/home/emilia/Documents/Medical Informatics/II semestr/Object_Oriented_Programming/Lab12/CleanedMetamorphosis.txt"));
+        System.out.println(splitUsingPunctuation("CleanedMetamorphosis.txt"));
 
     }
 
