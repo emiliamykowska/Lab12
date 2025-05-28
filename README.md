@@ -19,5 +19,18 @@ The project is a collaboration between two students, each contributing parts of 
 
 ## Repository
 
-You can find the source code and history at:  
-[GitHub Repository Link]
+Source code and history are available at:  
+https://github.com/emiliamykowska/Lab12
+
+## How to Run
+
+1. Clone the repository  
+2. Place the *Metamorphosis* text file (`metamorphosis.txt`) in the project directory  
+3. Run the `Main` class
+
+## Commit History
+
+Please see the GitHub commit log for detailed contributions from each author.
+
+---
+
