@@ -15,7 +15,7 @@ The project is a collaboration between two students, each contributing parts of 
 ## Authors
 
 - Person One: [Akash Biju Yohannan], Student ID: 286856, GitHub: [Aktreides44]  
-- Person Two: [Emilia Mykowska], Student ID: XXXXX, GitHub: [emiliamykowska]
+- Person Two: [Emilia Mykowska], Student ID: 288132, GitHub: [emiliamykowska]
 
 ## Repository
 
